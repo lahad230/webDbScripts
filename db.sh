@@ -56,7 +56,7 @@ function enableService(){
 
 validation
 installtion
-var=$(psql -v 2>&1)
+var=$(psql -v)
 editConfig
 initDb
 enableService
