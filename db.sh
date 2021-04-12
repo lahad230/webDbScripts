@@ -37,7 +37,7 @@ function editConfig(){
     #<description>
     #this function makes changes to pg_hba.conf and postgresql.conf
     #to make the db listen to the outside.
-    echo "host    all             all             all                     md5" | sudo tee -a /etc/postgresql/10/main/pg_hba.conf
+    echo "host    all             all             0.0.0.0/0                    md5" | sudo tee -a /etc/postgresql/10/main/pg_hba.conf
     echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/10/main/postgresql.conf
 }
 
