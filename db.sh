@@ -3,14 +3,14 @@
 # <description>
 # This script will build and deploy postgres DB automatically.
 # This script works on Ubuntu operation system.
-pass=$1
-
+user=$1
+pass=$2
 function  usage() {
 	#<description>
 	# This function print the help menu for the user.
-    echo "call this script with 1 argument of the postgres user password:
+    echo "call this script with 2 arguments of the postgre user and password:
                 
-	Example: ./db.sh 'password'" ; 
+	Example: ./db.sh 'user' 'password'" ; 
     exit 1; 
 }
 
@@ -45,7 +45,7 @@ function initDb(){
     #<description>
     #this function creates the table in the db and adds password to the postgres user.
     sudo -u postgres psql -d postgres -c "CREATE TABLE IF NOT EXISTS measurements (id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, user_id varchar(50) NOT NULL, measure_date date NOT NULL, weight numeric(5,1) NOT NULL)"
-    sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD '${pass}';"
+    sudo -u postgres psql -c "ALTER USER ${user} WITH PASSWORD '${pass}';"
 }
 
 function enableService(){
