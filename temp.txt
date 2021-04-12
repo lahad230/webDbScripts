@@ -1,0 +1,21 @@
+ip=$(curl https://ipinfo.io/ip)
+echo "# Host configuration
+PORT=8080
+HOST=0.0.0.0
+NODE_ENV=development
+HOST_URL=http://$ip:8080
+COOKIE_ENCRYPT_PWD=superAwesomePasswordStringThatIsAtLeast32CharactersLong!
+# Okta configuration
+OKTA_ORG_URL=https://dev-60980327.okta.com
+OKTA_CLIENT_ID=0oacc9gz0UJLyzCpN5d6
+OKTA_CLIENT_SECRET=Meog0xjizkiTL-NvuDXgpAutYuAtBVCAEzoNKnPZ
+# Postgres configuration
+PGHOST=10.0.1.6
+PGUSERNAME=postgres
+PGDATABASE=postgres
+PGPASSWORD=p@ssw0rd42
+PGPORT=5432" > .env
+
+3. sudo -u postgres psql -c "ALTER USER postgres WITH PASSWORD 'p@ssw0rd42';"
+
+sudo -u postgres psql -d postgres -c "CREATE TABLE IF NOT EXISTS measurements (id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, user_id varchar(50) NOT NULL, measure_date date NOT NULL, weight numeric(5,1) NOT NULL)"
