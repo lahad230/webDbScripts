@@ -3,7 +3,6 @@
 # <description>
 # This script will build and deploy postgres DB automatically.
 # This script works on Ubuntu operation system.
-var=$(psql -v 2>&1)
 pass=$1
 
 function  usage() {
@@ -57,6 +56,7 @@ function enableService(){
 
 validation
 installtion
+var=$(psql -v 2>&1)
 editConfig
 initDb
 enableService
