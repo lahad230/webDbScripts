@@ -118,7 +118,6 @@ function deploy(){
 	#<description>
 	# This function deploy the app and the DB
 	# The app will run as srevice using pm2.	
-npm run initdb
 sudo pm2 start npm -- run dev
 sudo pm2 save
 sudo pm2 startup
