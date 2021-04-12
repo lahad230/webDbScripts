@@ -37,8 +37,8 @@ function editConfig(){
     #<description>
     #this function makes changes to pg_hba.conf and postgresql.conf
     #to make the db listen to the outside.
-    echo "host    all             all             0.0.0.0/0                    md5" | sudo tee -a /etc/postgresql/${ver}/main/pg_hba.conf
-    echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/${ver}/main/postgresql.conf
+    echo "host    all             all             0.0.0.0/0                    md5" | sudo tee -a /etc/postgresql/*/main/pg_hba.conf
+    echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/*/main/postgresql.conf
 }
 
 function initDb(){
@@ -54,9 +54,9 @@ function enableService(){
     sudo systemctl enable postgresql
 }
 
+
 validation
 installtion
-ver=$(postgres -V)
 editConfig
 initDb
 enableService
