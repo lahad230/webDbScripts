@@ -4,7 +4,7 @@
 # This script will build and deploy postgres DB automatically.
 # This script works on Ubuntu operation system.
 
-pass=$2
+pass=$1
 function  usage() {
 	#<description>
 	# This function print the help menu for the user.
