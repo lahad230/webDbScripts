@@ -44,8 +44,8 @@ function editConfig(){
 function initDb(){
     #<description>
     #this function creates the table in the db and adds password to the postgres user.
-    sudo -u ${user} psql -d postgres -c "CREATE TABLE IF NOT EXISTS measurements (id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, user_id varchar(50) NOT NULL, measure_date date NOT NULL, weight numeric(5,1) NOT NULL)"
-    sudo -u ${user} psql -c "ALTER USER ${user} WITH PASSWORD '${pass}';"
+    sudo -u $user psql -d postgres -c "CREATE TABLE IF NOT EXISTS measurements (id INT NOT NULL PRIMARY KEY GENERATED ALWAYS AS IDENTITY, user_id varchar(50) NOT NULL, measure_date date NOT NULL, weight numeric(5,1) NOT NULL)"
+    sudo -u $user psql -c "ALTER USER ${user} WITH PASSWORD '${pass}';"
 }
 
 function enableService(){
