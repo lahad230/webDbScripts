@@ -20,7 +20,7 @@ function  usage() {
          -d postgresql database default=postgres
          -r postgresql post default=5432
                 
-	Example: ./deploy.sh -u {okta url} -i {okta id} -s {okta secret} -h {postgresql host} -p {postgresql password}" ; exit 1; }
+	Example: ./front.sh -u {okta url} -i {okta id} -s {okta secret} -h {postgresql host} -p {postgresql password}" ; exit 1; }
 				
 	#<description>
 	# This method use to get all the arguments from the user and set the currect variable with the currect value.
