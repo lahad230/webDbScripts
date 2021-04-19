@@ -82,7 +82,7 @@ function installtion(){
 	#<description>
 	# This function install using apt all the  requirements for the App.
 
-# sudo apt-get install git
+sudo apt-get install git
 git clone https://github.com/lahad230/weightTracker.git
 curl -fsSL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 sudo apt-get install -y nodejs
@@ -118,6 +118,7 @@ function deploy(){
 	#<description>
 	# This function deploy the app and the DB
 	# The app will run as srevice using pm2.	
+npm run initdb
 sudo pm2 start npm -- run dev
 sudo pm2 save
 sudo pm2 startup
